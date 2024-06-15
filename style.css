@@ -1,0 +1,219 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif; /* Set a readable font */
+  line-height: 1.6; /* Improved readability */
+  background-color: #f0f0f0; /* Light background color */
+}
+
+.obj-width {
+  max-width: 1200px;
+  margin: auto;
+}
+
+nav {
+  background-color: rgb(23, 129, 133);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.3); /* Slightly reduce shadow */
+  padding: 10px 0; /* Increase padding for better spacing */
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px; /* Add horizontal padding */
+}
+
+.navbar .logo {
+  color: bisque;
+  text-decoration: none;
+  letter-spacing: 1px; /* Slightly reduce letter spacing */
+  font-size: 2rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.search-input {
+  flex: 1; /* Take remaining space */
+  padding: 12px; /* Increased padding */
+  border: none;
+  font-size: 16px; /* Slightly larger font size */
+  color: #333;
+  outline: none;
+}
+
+.search-button {
+  padding: 12px 20px; /* Increased padding */
+  background-color: rgb(23, 129, 133);
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: rgb(30, 170, 175); /* Darker shade on hover */
+}
+
+#blog-container {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: space-between; /* Even spacing between cards */
+  flex-wrap: wrap;
+}
+
+.blog-card {
+  width: calc(33.33% - 20px); /* Adjusted width for responsive grid */
+  margin: 10px;
+  background-color: #fff; /* White background */
+  border-radius: 8px;
+  overflow: hidden; /* Ensure content doesn't overflow */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px; /* Adjusted height for better image aspect ratio */
+  object-fit: cover;
+  border-radius: 8px 8px 0 0; /* Rounded corners for the top */
+}
+
+.blog-card h2 {
+  color: #333;
+  font-size: 1.6rem; /* Slightly smaller font size */
+  font-weight: 500;
+  margin: 15px 15px 10px; /* Adjusted margins */
+}
+
+.blog-card p {
+  font-size: 1.2rem;
+  color: #666; /* Darker gray text color */
+  margin: 0 15px 15px; /* Adjusted margins */
+}
+
+/* Footer Styles */
+footer {
+  background-color: rgb(23, 129, 133);
+  color: #fff;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-section {
+  flex: 1 0 300px;
+  margin-bottom: 30px;
+}
+
+.footer-section h2 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.footer-section p {
+  color: #f0f0f0;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  color: #f0f0f0;
+}
+
+.footer-section .contact ul li {
+  display: flex;
+  align-items: center;
+}
+
+.footer-section .contact ul li i {
+  margin-right: 10px;
+}
+
+.footer-bottom {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.footer-bottom p {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1024px) {
+  .blog-card {
+    width: calc(50% - 20px); /* Two cards per row on smaller screens */
+  }
+}
+
+@media (max-width: 800px) {
+  .navbar .logo {
+    font-size: 1.8rem;
+  }
+  #search-input {
+    max-width: 300px; /* Reduced max-width for smaller screens */
+  }
+  #blog-container {
+    justify-content: center; /* Center align cards on smaller screens */
+  }
+  .blog-card {
+    width: calc(100% - 20px); /* Full width cards on smaller screens */
+    margin-bottom: 20px; /* Increased margin between cards */
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar .logo {
+    font-size: 1.6rem; /* Further reduce font size for smallest screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    flex: 1 0 100%;
+  }
+}
