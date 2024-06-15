@@ -1,9 +1,35 @@
 const apikey = "8b9620907eec4880acee780d7f969bc2";
 const blogContainer = document.getElementById("blog-container");
+const searchField = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-button");
 
 async function fetchRandomNews() {
   try {
     const apiUrl = `https://newsapi.org/v2/top-headlines?sources=techcrunch&pageSize=9&apiKey=${apikey}`;
+    const response = await fetch(apiUrl);
+    const data = await response.json(); // Corrected to response.json()
+    return data.articles;
+  } catch (error) {
+    console.log("Error fetching random news", error);
+    return []; // Return an empty array on error
+  }
+}
+
+searchBtn.addEventListener("click", async () => {
+  const query = searchField?.value.trim();
+  if (query !== "") {
+    try {
+      const articles = await fetchNewsQuery(query);
+      displayBlogs(articles);
+    } catch (error) {
+      console.error("Error fetching news by query", error);
+    }
+  }
+});
+
+async function fetchNewsQuery(query) {
+  try {
+    const apiUrl = `https://newsapi.org/v2/everything?q=${query}&pageSize=9&apiKey=${apikey}`;
     const response = await fetch(apiUrl);
     const data = await response.json(); // Corrected to response.json()
     return data.articles;
@@ -38,6 +64,9 @@ function displayBlogs(articles) {
     blogCard.appendChild(img);
     blogCard.appendChild(title);
     blogCard.appendChild(description);
+    blogCard.addEventListener("click", () => {
+      window.open(article.url, "_blank");
+    });
     blogContainer.appendChild(blogCard);
   });
 }
